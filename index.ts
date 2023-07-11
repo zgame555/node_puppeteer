@@ -4,6 +4,9 @@ import fastify, {
   FastifyRequest,
 } from 'fastify'
 import { scrapUrl } from './scrap'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const PORT = Number(process.env.PORT || 3000)
 const HOST = process.env.HOST || '0.0.0.0'
