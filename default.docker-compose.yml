@@ -1,23 +1,16 @@
-version: '3'
+version: '3.8'
+
+services:
+  nodejs:
+    container_name: nodejs_puppeteer
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    ports:
+      - '3000:3000'
+    networks:
+      - puppeteer-network
 
 networks:
-  api_network:
-services:
-  scaping_api:
-    build: .
-    container_name: scaping_api
-    hostname: scaping_api
-    image: scaping_api
-    restart: always
-    environment:
-      - TZ=Asia/Bangkok 
-      - HOST=0.0.0.0
-      - PORT=3000
-    ports:
-      - 3000:3000
-    networks:
-      - api_network
- 
-   
-
-
+  puppeteer-network:
+    name: puppeteer-network
